@@ -18,7 +18,7 @@ export default class App extends Component {
   onBarcodeScan(qrvalue) {
     this.setState({ qrvalue: qrvalue });
     this.setState({ opneScanner: false });
-    db.ref('/po').push(qrvalue)
+    db.ref('/belajar').push(qrvalue)
   }
   onOpneScanner() {
     var that =this;
@@ -53,8 +53,6 @@ export default class App extends Component {
     if (!this.state.opneScanner) {
       return (
         <View style={styles.container}>
-            <Text style={styles.heading}>React Native QR Code Example</Text>
-            <Text style={styles.simpleText}>{this.state.qrvalue}</Text>
             <TouchableHighlight
               onPress={() => this.onOpneScanner()}
               style={styles.button}>
@@ -95,18 +93,4 @@ const styles = StyleSheet.create({
     width:300,
     marginTop:16
   },
-  heading: { 
-    color: 'black', 
-    fontSize: 24, 
-    alignSelf: 'center', 
-    padding: 10, 
-    marginTop: 30 
-  },
-  simpleText: { 
-    color: 'black', 
-    fontSize: 20, 
-    alignSelf: 'center', 
-    padding: 10, 
-    marginTop: 16
-  }
 });
